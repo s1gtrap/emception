@@ -98,4 +98,4 @@ if [ ! -d $LLVM_BUILD/ ]; then
     cat $TMP_FILE >> $LLVM_BUILD/build.ninja
     popd
 fi
-cmake --build $LLVM_BUILD/ -- llvm-box
+cmake --build $LLVM_BUILD/ -- llvm-box -j 1
