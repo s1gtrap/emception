@@ -73,8 +73,6 @@ if [ ! -d $LLVM_BUILD/ ]; then
 		-DLLVM_INCLUDE_TESTS=OFF \
 		-DLLVM_TABLEGEN=$LLVM_NATIVE/bin/llvm-tblgen \
 		-DCLANG_TABLEGEN=$LLVM_NATIVE/bin/clang-tblgen
-	-DLLVM_PARALLEL_COMPILE_JOBS=1 \
-		-DLLVM_PARALLEL_LINK_JOBS=1
 
 	# Make sure we build js modules (.mjs).
 	# The patch-ninja.sh script assumes that.
@@ -97,4 +95,4 @@ if [ ! -d $LLVM_BUILD/ ]; then
 	cat $TMP_FILE >>$LLVM_BUILD/build.ninja
 	popd
 fi
-cmake --build $LLVM_BUILD/ -- llvm-box -j 1
+cmake --build $LLVM_BUILD/ -- llvm-box
