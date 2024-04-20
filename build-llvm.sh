@@ -26,7 +26,7 @@ if [ ! -d $LLVM_SRC/ ]; then
 
 	# This is the last tested commit of llvm-project.
 	# Feel free to try with a newer version
-	COMMIT=d5a963ab8b40fcf7a99acd834e5f10a1a30cc2e5
+	COMMIT=f7a88a3eeebb49c70d1aa29885c48b27c3bc6a66
 	git fetch origin $COMMIT
 	git reset --hard $COMMIT
 
@@ -72,8 +72,8 @@ if [ ! -d $LLVM_BUILD/ ]; then
 		-DLLVM_BUILD_LLVM_DYLIB=OFF \
 		-DLLVM_INCLUDE_TESTS=OFF \
 		-DLLVM_TABLEGEN=$LLVM_NATIVE/bin/llvm-tblgen \
-		-DCLANG_TABLEGEN=$LLVM_NATIVE/bin/clang-tblgen
-	-DLLVM_PARALLEL_COMPILE_JOBS=1 \
+		-DCLANG_TABLEGEN=$LLVM_NATIVE/bin/clang-tblgen \
+		-DLLVM_PARALLEL_COMPILE_JOBS=1 \
 		-DLLVM_PARALLEL_LINK_JOBS=1
 
 	# Make sure we build js modules (.mjs).
